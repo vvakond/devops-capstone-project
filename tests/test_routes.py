@@ -124,15 +124,20 @@ class TestAccountService(TestCase):
         self.assertEqual(response.status_code, status.HTTP_415_UNSUPPORTED_MEDIA_TYPE)
 
     def test_read_an_account(self):
-         """It should Read an Account"""
-         account = self._create_accounts(1)[0]
-         response = self.client.get(f"{BASE_URL}/{account.id}")
-         self.assertEqual(response.status_code, status.HTTP_200_OK)
-         # Check data is correct
-         read_account = response.get_json()
-         self.assertEqual(read_account["id"], account.id)
-         self.assertEqual(read_account["name"], account.name)
-         self.assertEqual(read_account["email"], account.email)
-         self.assertEqual(read_account["address"], account.address)
-         self.assertEqual(read_account["phone_number"], account.phone_number)
-         self.assertEqual(read_account["date_joined"], str(account.date_joined))
+        """It should Read an Account"""
+        account = self._create_accounts(1)[0]
+        response = self.client.get(f"{BASE_URL}/{account.id}")
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        # Check data is correct
+        read_account = response.get_json()
+        self.assertEqual(read_account["id"], account.id)
+        self.assertEqual(read_account["name"], account.name)
+        self.assertEqual(read_account["email"], account.email)
+        self.assertEqual(read_account["address"], account.address)
+        self.assertEqual(read_account["phone_number"], account.phone_number)
+        self.assertEqual(read_account["date_joined"], str(account.date_joined))
+
+    def test_get_account_not_found(self):
+        """It should not Read an Account that is not found"""
+        resp = self.client.get(f"{BASE_URL}/0")
+        self.assertEqual(resp.status_code, status.HTTP_404_NOT_FOUND)
