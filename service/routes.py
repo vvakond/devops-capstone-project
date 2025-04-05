@@ -9,6 +9,7 @@ from service.models import Account
 from service.common import status  # HTTP Status Codes
 from . import app  # Import Flask application
 
+HEADER_CONTENT_TYPE = "application/json"
 
 ############################################################
 # Health Endpoint
