@@ -62,7 +62,6 @@ def create_accounts():
 ######################################################################
 # LIST ALL ACCOUNTS
 ######################################################################
-
 @app.route("/accounts", methods=["GET"])
 def list_all_accounts():
     """ List all accounts """
@@ -86,7 +85,6 @@ def list_all_accounts():
 ######################################################################
 # READ AN ACCOUNT
 ######################################################################
-
 @app.route("/accounts/<int:account_id>", methods=["GET"])
 def read_account(account_id: int):
     """ Read an account depending on supplied ID """
@@ -107,7 +105,6 @@ def read_account(account_id: int):
 ######################################################################
 # UPDATE AN EXISTING ACCOUNT
 ######################################################################
-
 @app.route("/accounts/<int:account_id>", methods=["PUT"])
 def update_account(account_id: int):
     """ Update an account depending on supplied ID """
@@ -135,7 +132,6 @@ def update_account(account_id: int):
 ######################################################################
 # DELETE AN ACCOUNT
 ######################################################################
-
 @app.route("/accounts/<int:account_id>", methods=["DELETE"])
 def delete_account(account_id: int):
     """ Delete an account depending on supplied ID """
@@ -159,8 +155,6 @@ def delete_account(account_id: int):
 ######################################################################
 #  U T I L I T Y   F U N C T I O N S
 ######################################################################
-
-
 def check_content_type(media_type):
     """Checks that the media type is correct"""
     content_type = request.headers.get("Content-Type")
