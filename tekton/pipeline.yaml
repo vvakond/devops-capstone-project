@@ -14,8 +14,8 @@ spec:
   params:
     - name: repo-url
     - name: branch
-    - name: build-image
       default: main
+    - name: build-image
   tasks:
     - name: init
       workspaces:
