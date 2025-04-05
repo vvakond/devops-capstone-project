@@ -11,6 +11,7 @@ from . import app  # Import Flask application
 
 HEADER_CONTENT_TYPE = "application/json"
 
+
 ############################################################
 # Health Endpoint
 ############################################################
